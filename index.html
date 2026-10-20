@@ -1,1 +1,836 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Tu 24 de octubre</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap">
+<style>
+/* Layout: una columna angosta. El día es un ticket de entrada con talón perforado y las paradas cuelgan de una enredadera punteada. */
+:root {
+  --bg: #EBEFE3;
+  --surface: #F7F8F1;
+  --surface-2: #E0E7D6;
+  --ink: #25342A;
+  --ink-soft: #586A5C;
+  --moss: #4E6A50;
+  --on-moss: #F7F8F1;
+  --sage: #A9BCA0;
+  --blush: #E6B8AD;
+  --blush-deep: #B9695A;
+  --sand: #E7DAC0;
+  --line: #C9D3BC;
+  --shadow: rgba(30, 45, 34, 0.18);
+  --w1: #4E6A50; --w1t: #F7F8F1;
+  --w2: #A9BCA0; --w2t: #25342A;
+  --w3: #E6B8AD; --w3t: #25342A;
+  --w4: #E7DAC0; --w4t: #25342A;
+  --font-display: 'Young Serif', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #18221B;
+    --surface: #212E25;
+    --surface-2: #2A3A2F;
+    --ink: #E8EEE0;
+    --ink-soft: #A9B9AB;
+    --moss: #9CBB98;
+    --on-moss: #17221A;
+    --sage: #566F55;
+    --blush: #D69F93;
+    --blush-deep: #E0A89B;
+    --sand: #4A4637;
+    --line: #38483C;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --w1: #9CBB98; --w1t: #17221A;
+    --w2: #566F55; --w2t: #E8EEE0;
+    --w3: #D69F93; --w3t: #1E2620;
+    --w4: #4A4637; --w4t: #E8EEE0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #18221B;
+  --surface: #212E25;
+  --surface-2: #2A3A2F;
+  --ink: #E8EEE0;
+  --ink-soft: #A9B9AB;
+  --moss: #9CBB98;
+  --on-moss: #17221A;
+  --sage: #566F55;
+  --blush: #D69F93;
+  --blush-deep: #E0A89B;
+  --sand: #4A4637;
+  --line: #38483C;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --w1: #9CBB98; --w1t: #17221A;
+  --w2: #566F55; --w2t: #E8EEE0;
+  --w3: #D69F93; --w3t: #1E2620;
+  --w4: #4A4637; --w4t: #E8EEE0;
+  color-scheme: dark;
+}
 
+* { box-sizing: border-box; }
+[v-cloak] { display: none; }
+body {
+  margin: 0;
+  padding-block: 20px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 28rem at 105% -6%, color-mix(in srgb, var(--blush) 30%, transparent), transparent 70%),
+    radial-gradient(52rem 30rem at -10% 18%, color-mix(in srgb, var(--sage) 34%, transparent), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font: 16px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 720px; margin: 0 auto; display: grid; gap: 56px; }
+section { scroll-margin-top: 16px; }
+
+.eyebrow {
+  margin: 0;
+  font: 500 0.72rem/1.35 var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.head { display: grid; gap: 8px; margin-bottom: 22px; }
+.head h2 {
+  margin: 0;
+  font: 400 clamp(1.65rem, 6vw, 2.2rem)/1.1 var(--font-display);
+  text-wrap: balance;
+}
+.lead { margin: 0; max-width: 56ch; color: var(--ink-soft); }
+
+/* Ticket de portada */
+header { display: grid; gap: 18px; }
+.ticket {
+  filter: drop-shadow(0 1px 0 var(--line)) drop-shadow(0 20px 22px var(--shadow));
+}
+.ticket-main, .ticket-stub { background: var(--surface); }
+.ticket-main {
+  padding: 28px 24px 26px;
+  border-radius: 22px 22px 0 0;
+  -webkit-mask:
+    radial-gradient(circle 12px at 0 100%, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 12px at 100% 100%, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 12px at 0 100%, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 12px at 100% 100%, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+.ticket-stub {
+  position: relative;
+  padding: 22px 24px 24px;
+  border-radius: 0 0 22px 22px;
+  display: grid;
+  gap: 16px;
+  -webkit-mask:
+    radial-gradient(circle 12px at 0 0, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 12px at 100% 0, #0000 97%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 12px at 0 0, #0000 97%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 12px at 100% 0, #0000 97%, #000) right / 51% 100% no-repeat;
+}
+.ticket-stub::before {
+  content: "";
+  position: absolute;
+  left: 20px; right: 20px; top: 0;
+  border-top: 2px dashed var(--line);
+}
+.ticket h1 {
+  margin: 10px 0 14px;
+  font: 400 clamp(2.1rem, 9vw, 3.3rem)/1.03 var(--font-display);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ticket .lede { margin: 0; max-width: 46ch; color: var(--ink-soft); font-size: 1.05rem; }
+.count { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.cell { background: var(--surface-2); border-radius: 14px; padding: 10px 4px 8px; text-align: center; }
+.cell b {
+  display: block;
+  font: 500 clamp(1.5rem, 7vw, 2rem)/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.cell span {
+  font: 500 0.66rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.today { margin: 0; font: 400 1.35rem/1.2 var(--font-display); }
+.barcode-row { display: flex; align-items: center; gap: 14px; }
+.barcode {
+  flex: 1;
+  height: 30px;
+  min-width: 0;
+  background: repeating-linear-gradient(90deg,
+    var(--ink) 0 2px, transparent 2px 5px,
+    var(--ink) 5px 6px, transparent 6px 10px,
+    var(--ink) 10px 13px, transparent 13px 15px,
+    var(--ink) 15px 16px, transparent 16px 19px);
+  opacity: 0.75;
+}
+.barcode-row span { font: 500 0.7rem var(--font-mono); letter-spacing: 0.1em; color: var(--ink-soft); white-space: nowrap; }
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 15px;
+  font: 600 0.85rem var(--font-body);
+  cursor: pointer;
+  min-height: 38px;
+}
+.pill:hover { border-color: var(--moss); }
+
+/* Paradas */
+.stops { list-style: none; margin: 0; padding: 0; }
+.stop { position: relative; padding: 0 0 26px 54px; }
+.stop::before {
+  content: "";
+  position: absolute;
+  left: 19px; top: 32px; bottom: 2px;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--sage) 0 6px, transparent 6px 11px);
+}
+.stop:last-child { padding-bottom: 0; }
+.stop:last-child::before { display: none; }
+.node {
+  position: absolute;
+  left: 8px; top: 4px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--moss);
+  transition: background 0.25s;
+}
+.stop.open .node { background: var(--moss); }
+.stop.secret .node { border-color: var(--blush-deep); background: var(--blush); }
+.stop-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.stop-btn:focus-visible, .pill:focus-visible, .btn:focus-visible, .tab:focus-visible, .chip:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 4px;
+}
+.t-time { display: block; font: 500 0.78rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); }
+.t-title { display: block; margin: 2px 0 4px; font: 400 1.45rem/1.15 var(--font-display); }
+.t-brief { display: block; color: var(--ink-soft); }
+.t-hint { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font: 600 0.82rem var(--font-body); color: var(--moss); }
+.t-hint svg { transition: transform 0.25s; }
+.stop.open .t-hint svg { transform: rotate(180deg); }
+.more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s ease; }
+.more > div { overflow: hidden; min-height: 0; visibility: hidden; }
+.stop.open .more { grid-template-rows: 1fr; }
+.stop.open .more > div { visibility: visible; }
+.more ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; max-width: 56ch; }
+.more li { position: relative; padding-left: 22px; }
+.more li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 0.5em;
+  width: 9px; height: 9px;
+  border-radius: 0 100% 0 100%;
+  background: var(--sage);
+  transform: rotate(-20deg);
+}
+
+/* Tu lugar */
+.layout { display: grid; gap: 28px; }
+@media (min-width: 660px) { .layout { grid-template-columns: minmax(0, 1fr) 290px; align-items: start; } }
+.roles { min-width: 0; }
+.progress { display: grid; gap: 8px; margin-bottom: 20px; }
+.bar { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.bar i { display: block; height: 100%; width: var(--p); background: var(--moss); transition: width 0.4s; }
+.role { padding: 18px 0; border-top: 1px solid var(--line); }
+.role:first-of-type { border-top: 0; padding-top: 0; }
+.role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.role h3 { margin: 0; font: 400 1.25rem/1.2 var(--font-display); }
+.mini { font: 500 0.75rem var(--font-mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.role p { margin: 2px 0 8px; color: var(--ink-soft); font-size: 0.95rem; }
+.chk { display: flex; gap: 12px; align-items: flex-start; padding: 7px 0; cursor: pointer; }
+.chk input {
+  appearance: none; -webkit-appearance: none;
+  flex: none;
+  width: 22px; height: 22px;
+  margin: 1px 0 0;
+  border: 2px solid var(--moss);
+  border-radius: 7px;
+  background: transparent;
+  display: grid; place-items: center;
+  cursor: pointer;
+}
+.chk input:checked { background: var(--moss); }
+.chk input:checked::after {
+  content: "";
+  width: 6px; height: 11px;
+  border: solid var(--on-moss);
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.chk input:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+.chk input:checked + span { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: var(--sage); }
+.picadita { margin-top: 8px; background: var(--sand); color: var(--ink); border-radius: 16px; padding: 16px 18px; display: grid; gap: 6px; }
+.picadita .eyebrow { color: var(--ink); opacity: 0.75; }
+.picadita p { margin: 0; }
+
+.wheel-card {
+  background: var(--surface);
+  border-radius: 22px;
+  padding: 18px 18px 20px;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+  box-shadow: 0 1px 0 var(--line), 0 22px 26px -26px var(--shadow);
+}
+.wheel { width: min(100%, 260px); aspect-ratio: 1; }
+.wheel svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.wedge { stroke: var(--surface); stroke-width: 2; }
+.f-w1 { fill: var(--w1); } .f-w2 { fill: var(--w2); } .f-w3 { fill: var(--w3); } .f-w4 { fill: var(--w4); }
+.wheel text { font: 500 12px var(--font-mono); }
+.t-w1 { fill: var(--w1t); } .t-w2 { fill: var(--w2t); } .t-w3 { fill: var(--w3t); } .t-w4 { fill: var(--w4t); }
+.rim { fill: none; stroke: var(--moss); stroke-width: 5; }
+.hub { fill: var(--surface); stroke: var(--moss); stroke-width: 3; }
+.wheel .hub-t { fill: var(--ink); font: 500 9px var(--font-mono); letter-spacing: 0.08em; }
+.pointer { fill: var(--blush-deep); stroke: var(--surface); stroke-width: 2; stroke-linejoin: round; }
+.result { margin: 4px 0 0; min-height: 1.5em; font: 400 1.2rem/1.2 var(--font-display); }
+.btn {
+  border: 0;
+  background: var(--moss);
+  color: var(--on-moss);
+  border-radius: 999px;
+  padding: 12px 28px;
+  font: 600 1rem var(--font-body);
+  cursor: pointer;
+  min-height: 46px;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: 0.6; cursor: default; }
+.note { margin: 0; font-size: 0.82rem; color: var(--ink-soft); }
+
+/* Look */
+.panel { background: var(--surface); border-radius: 22px; padding: 20px; box-shadow: 0 1px 0 var(--line), 0 22px 26px -26px var(--shadow); }
+.tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: var(--surface-2); margin-bottom: 20px; }
+.tab { border: 0; background: transparent; color: var(--ink-soft); font: 600 0.9rem var(--font-body); padding: 9px 18px; border-radius: 999px; cursor: pointer; min-height: 40px; }
+.tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 0 var(--line); }
+.group { display: grid; gap: 8px; margin-bottom: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 9px 16px; font: 500 0.95rem var(--font-body); cursor: pointer; min-height: 40px; }
+.chip[aria-pressed="true"] { background: var(--moss); border-color: var(--moss); color: var(--on-moss); }
+.look-summary { background: var(--sand); color: var(--ink); border-radius: 16px; padding: 16px 18px; display: grid; gap: 4px; }
+.look-summary .eyebrow { color: var(--ink); opacity: 0.75; }
+.look-summary strong { font: 400 1.25rem/1.25 var(--font-display); }
+.look-summary p { margin: 0; }
+
+/* Sorpresa */
+.seal-wrap { display: grid; gap: 14px; justify-items: center; text-align: center; }
+.envelope {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 8 / 5;
+  background: var(--sand);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 var(--line), 0 24px 30px -24px var(--shadow);
+}
+.envelope::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--blush);
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+}
+.seal {
+  position: absolute;
+  left: 50%; top: 58%;
+  width: 54px; height: 54px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--blush-deep);
+  display: grid; place-items: center;
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--blush-deep) 70%, #000);
+}
+.para { position: absolute; left: 0; right: 0; bottom: 14px; text-align: center; font: 500 0.72rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); opacity: 0.7; }
+.seal-wrap.shake .envelope { animation: shake 0.55s; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px) rotate(-1deg); } 40% { transform: translateX(8px) rotate(1deg); } 60% { transform: translateX(-5px); } 80% { transform: translateX(5px); } }
+.seal-text { margin: 0; font: 400 1.2rem/1.25 var(--font-display); }
+.seal-msg { margin: 0; min-height: 1.5em; color: var(--ink-soft); font-size: 0.95rem; }
+.letter {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 30px 26px 28px;
+  box-shadow: 0 1px 0 var(--line), 0 26px 30px -26px var(--shadow);
+}
+.letter h3 { margin: 0 0 16px; font: 400 clamp(1.5rem, 6vw, 1.9rem)/1.15 var(--font-display); text-wrap: balance; }
+.letter p { margin: 0 0 12px; max-width: 46ch; }
+.letter .firma { margin: 18px 0 0; font: 400 1.25rem var(--font-display); color: var(--moss); }
+.fade-enter-active, .fade-leave-active { transition: opacity 0.4s, transform 0.4s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(10px) scale(0.98); }
+
+.petals { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 20; }
+.petal {
+  position: absolute; top: -24px; left: var(--x);
+  width: var(--s); height: var(--s);
+  border-radius: 0 100% 0 100%;
+  background: var(--c);
+  opacity: 0.9;
+  animation: fall var(--d) var(--delay) cubic-bezier(0.3, 0.1, 0.5, 1) forwards;
+}
+@keyframes fall {
+  0% { transform: translate3d(0, -10vh, 0) rotate(0deg); }
+  100% { transform: translate3d(var(--dx), 112vh, 0) rotate(var(--r)); }
+}
+
+.foot { text-align: center; color: var(--ink-soft); font: 500 0.72rem/1.5 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+</style>
+
+<div id="app" class="wrap" v-cloak>
+
+  <header>
+    <div class="ticket">
+      <div class="ticket-main">
+        <p class="eyebrow"> Sábado 24 de octubre</p>
+        <h1>Feliz cumpleaños{{ nombre ? ', ' + nombre : '' }}</h1>
+        <p class="lede">El sábado 24 abre DUDS, pero más importante, es tu cumpleaños. Armé el día entero para hacaerte sentir especial, porque te quiero tener en mi vida, y este día no se podía pasar por alto.</p>
+      </div>
+      <div class="ticket-stub">
+        <template v-if="fase === 'antes'">
+          <p class="eyebrow">Faltan para que pase por ti, a las 08:00 (hora de Ecuador)</p>
+          <div class="count" role="timer">
+            <div class="cell"><b>{{ parts.d }}</b><span>días</span></div>
+            <div class="cell"><b>{{ pad(parts.h) }}</b><span>horas</span></div>
+            <div class="cell"><b>{{ pad(parts.m) }}</b><span>min</span></div>
+            <div class="cell"><b>{{ pad(parts.s) }}</b><span>seg</span></div>
+          </div>
+        </template>
+        <template v-else-if="fase === 'hoy'">
+          <p class="eyebrow">Hoy</p>
+          <p class="today">Hoy es el día. Mira abajo qué sigue.</p>
+        </template>
+        <template v-else>
+          <p class="eyebrow">24 de octubre</p>
+          <p class="today">Fue un día para recordar.</p>
+        </template>
+        <div class="barcode-row" aria-hidden="true">
+          <div class="barcode"></div>
+          <span>DUDS · 24.10.2026</span>
+        </div>
+      </div>
+    </div>
+    <nav class="jump" aria-label="Secciones">
+      <button v-for="j in jumps" :key="j.id" class="pill" type="button" @click="go(j.id)">{{ j.label }}</button>
+    </nav>
+  </header>
+
+  <section id="plan">
+    <div class="head">
+      <p class="eyebrow">Recorrido del día</p>
+      <h2>De la mañana a la noche</h2>
+      <p class="lead">Toca cada parada para ver el detalle.</p>
+    </div>
+    <ol class="stops">
+      <li v-for="s in stops" :key="s.id" class="stop" :class="{ open: isOpen(s.id), secret: s.secreto }">
+        <span class="node" aria-hidden="true"></span>
+        <button class="stop-btn" type="button" :aria-expanded="isOpen(s.id)" :aria-controls="'det-' + s.id" @click="toggleStop(s.id)">
+          <span class="t-time">{{ s.hora }}</span>
+          <span class="t-title">{{ s.titulo }}</span>
+          <span class="t-brief">{{ s.resumen }}</span>
+          <span class="t-hint">{{ isOpen(s.id) ? 'Ocultar' : 'Ver más' }}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </button>
+        <div class="more" :id="'det-' + s.id">
+          <div><ul><li v-for="d in s.detalle" :key="d">{{ d }}</li></ul></div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="lugar">
+    <div class="head">
+      <p class="eyebrow">Tu lugar en DUDS</p>
+      <h2>Tres puestos, todos tuyos</h2>
+      <p class="lead">Tú llevas la ruleta de premios, los tickets y la atención al público. Yo voy a estar ahí, pero quiero que el evento tenga tu sello. Sé que puedes con esto y con mucho más.</p>
+    </div>
+    <div class="layout">
+      <div class="roles">
+        <div class="progress">
+          <p class="eyebrow">Listo: {{ doneCount }} de {{ totalChecks }}</p>
+          <div class="bar" role="progressbar" aria-valuemin="0" :aria-valuemax="totalChecks" :aria-valuenow="doneCount"><i :style="{ '--p': pct + '%' }"></i></div>
+        </div>
+        <article class="role" v-for="r in roles" :key="r.id">
+          <div class="role-head">
+            <h3>{{ r.titulo }}</h3>
+            <span class="mini">{{ roleDone(r) }}/{{ r.tareas.length }}</span>
+          </div>
+          <p>{{ r.resumen }}</p>
+          <label class="chk" v-for="(t, i) in r.tareas" :key="r.id + i" :for="'chk-' + r.id + '-' + i">
+            <input type="checkbox" :id="'chk-' + r.id + '-' + i" :checked="!!checks[r.id + '-' + i]" @change="toggleCheck(r.id + '-' + i)">
+            <span>{{ t }}</span>
+          </label>
+        </article>
+        <aside class="picadita">
+          <p class="eyebrow">Picadita</p>
+          <p>Habrá picaditas. La idea no es llenarse, sino no pasar hambre y llegar con apetito a la cena.</p>
+        </aside>
+      </div>
+
+      <div class="wheel-card">
+        <p class="eyebrow">Ensaya la ruleta</p>
+        <div class="wheel">
+          <svg viewBox="0 0 320 320" role="img" aria-label="Ruleta de premios de práctica">
+            <g :style="spinStyle">
+              <path v-for="w in wedges" :key="'w' + w.i" :d="w.d" class="wedge" :class="'f-' + w.c"></path>
+              <g v-for="w in wedges" :key="'t' + w.i" :transform="'rotate(' + w.mid + ' 160 160)'">
+                <text x="160" y="34" transform="rotate(-90 160 34)" text-anchor="end" dominant-baseline="middle" :class="'t-' + w.c">{{ w.label }}</text>
+              </g>
+            </g>
+            <circle cx="160" cy="160" r="142" class="rim"></circle>
+            <circle cx="160" cy="160" r="26" class="hub"></circle>
+            <text x="160" y="160" text-anchor="middle" dominant-baseline="central" class="hub-t">DUDS</text>
+            <polygon points="147,2 173,2 160,30" class="pointer"></polygon>
+          </svg>
+        </div>
+        <p class="result" aria-live="polite">{{ resultText }}</p>
+        <button class="btn" type="button" :disabled="spinning" @click="spin">{{ spinning ? 'Girando…' : 'Girar' }}</button>
+        <p class="note">Giros de práctica con premios de ejemplo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="look">
+    <div class="head">
+      <p class="eyebrow">Look</p>
+      <h2>Qué ponerte</h2>
+      <p class="lead">Dos momentos, dos looks. Tú eliges.</p>
+    </div>
+    <div class="panel">
+      <div class="tabs" role="tablist" aria-label="Momento del día">
+        <button v-for="t in tabs" :key="t.id" class="tab" type="button" role="tab" :id="'tab-' + t.id" :aria-selected="tab === t.id" aria-controls="look-panel" @click="tab = t.id">{{ t.label }}</button>
+      </div>
+      <div id="look-panel" role="tabpanel" :aria-labelledby="'tab-' + tab">
+        <div class="group" v-for="g in groups[tab]" :key="g.key">
+          <span class="eyebrow" :id="'gl-' + g.key">{{ g.label }}</span>
+          <div class="chips" role="group" :aria-labelledby="'gl-' + g.key">
+            <button v-for="(o, i) in g.opciones" :key="o" class="chip" type="button" :aria-pressed="sel[g.key] === i" @click="pick(g.key, i)">{{ o }}</button>
+          </div>
+        </div>
+        <div class="look-summary">
+          <span class="eyebrow">Tu look</span>
+          <strong>{{ resumenLook }}</strong>
+          <p>{{ notas[tab] }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sorpresa">
+    <div class="head">
+      <p class="eyebrow">Para cerrar el día</p>
+      <h2>Una sorpresa para esta noche</h2>
+    </div>
+    <transition name="fade" mode="out-in">
+      <div v-if="!opened" key="sobre" class="seal-wrap" :class="{ shake: shake }">
+        <div class="envelope" aria-hidden="true">
+          <span class="seal">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M5 21C5 11 11 5 21 5c0 10-6 16-16 16z" fill="var(--surface)"/><path d="M5 21L15 11" stroke="var(--blush-deep)" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <span class="para">Para ti</span>
+        </div>
+        <p class="seal-text">{{ sealText }}</p>
+        <button class="btn" type="button" @click="openSurprise">{{ unlocked ? 'Abrir el sobre' : 'Intentar abrir' }}</button>
+        <p class="seal-msg" aria-live="polite">{{ tryMsg }}</p>
+      </div>
+      <article v-else key="carta" class="letter">
+        <h3>{{ carta.apertura }}</h3>
+        <p v-for="p in carta.parrafos" :key="p">{{ p }}</p>
+        <p class="firma">{{ carta.firma }}</p>
+      </article>
+    </transition>
+  </section>
+
+  <p class="foot">Hecho con cariño por Andrés · DUDS · 24.10.2026</p>
+
+  <div class="petals" aria-hidden="true">
+    <span v-for="p in petals" :key="p.id" class="petal" :style="p.style"></span>
+  </div>
+</div>
+
+<noscript><p style="padding:16px">Esta página necesita JavaScript activado.</p></noscript>
+<script>
+(function () {
+  /* Vue se carga desde un CDN y, si falla, se prueba el siguiente. Si todos fallan (o algo revienta al montar) se muestra un aviso en vez de dejar la página en blanco. */
+  var FUENTES = [
+    'https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js',
+    'https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.js',
+    'https://unpkg.com/vue@3.4.21/dist/vue.global.prod.js'
+  ];
+  function avisar(texto) {
+    var f = document.createElement('p');
+    f.style.cssText = 'padding:16px;font:16px system-ui,sans-serif;color:#25342A';
+    f.textContent = texto;
+    document.body.appendChild(f);
+  }
+  function cargar(i) {
+    if (window.Vue) { return arrancar(); }
+    if (i >= FUENTES.length) { avisar('No se pudo cargar el plan. Revisa tu conexión y recarga la página.'); return; }
+    var s = document.createElement('script');
+    s.src = FUENTES[i];
+    s.onload = function () { window.Vue ? arrancar() : cargar(i + 1); };
+    s.onerror = function () { cargar(i + 1); };
+    document.head.appendChild(s);
+  }
+  function arrancar() {
+    try { iniciar(); } catch (e) { avisar('No se pudo mostrar el plan (' + (e && e.message) + '). Recarga la página.'); }
+  }
+  cargar(0);
+
+  function iniciar() {
+
+  /* Edita aquí lo que quieras cambiar. Las horas son de Ecuador (UTC-05:00, sin horario de verano), sin importar la zona del dispositivo. */
+  var CONFIG = {
+    nombre: 'amorchis',
+    inicio: Date.parse('2026-10-24T08:00:00-05:00'),         // sábado 24 oct, 08:00 en Ecuador
+    finDia: Date.parse('2026-10-25T00:00:00-05:00'),         // fin del 24 en Ecuador
+    sorpresaDesde: Date.parse('2026-10-24T16:00:00-05:00'),  // 16:00 en Ecuador: cuándo se puede abrir el sobre
+    premios: ['Sticker DUDS', 'Cupón 10%', 'Gorra DUDS', 'Otro giro', 'Sorpresa', 'Cupón 15%'],
+    carta: {
+      apertura: 'Hoy abrió DUDS, y quise que tú estuvieras en el centro.',
+      parrafos: [
+        'Eres muy inteligente y puedes con todo lo que te propongas. Por eso quise que tuvieras tu lugar en un día tan importante.',
+        'Ahora sí te cuento la sorpresa: eran mariachis. Sé lo mucho que te gustan, y no hay nadie a quien quisiera más ver sonreír a mi pulguita más que yo  .',
+        'Te conozco, te amo, y me encanta conocerte tanto que puedo regalarte cosas que sé que te hacen feliz. Quise que hoy tuvieras tu sello en el evento, tu cena, tu música y a la gente que quieres cerca.',
+        'Gracias por estar conmigo hoy, por apoyarme en un día tan grande y por dejarme celebrarte como mereces.',
+        'Feliz cumpleaños, mi amor. Disfruta cada canción.'
+      ],
+      firma: 'Con amor, Tu pollito'
+    }
+  };
+
+  var createApp = Vue.createApp, ref = Vue.ref, reactive = Vue.reactive, computed = Vue.computed,
+      onMounted = Vue.onMounted, onBeforeUnmount = Vue.onBeforeUnmount;
+
+  var KEY = 'tu-24-de-octubre-v1';
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function persist(data) { try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} }
+  var reduce = false;
+  try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  var preview = false;
+  try { preview = location.hash === '#preview'; } catch (e) {}
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  var stops = [
+    { id: 'recogida', hora: '08:00', titulo: 'Paso por ti', resumen: 'Salimos juntos hacia la apertura de DUDS.',
+      detalle: ['Paso por tu casa a las 8 de la mañana. (se viene desayunito)', 'Ven con el look del evento. Más abajo tienes las opciones.', 'Va a ser una mañana de movimiento, así que lo cómodo también se vale.'] },
+    { id: 'evento', hora: 'Mañana', titulo: 'Apertura de DUDS', resumen: 'La tienda abre y tú tienes el puesto al frente.',
+      detalle: ['Tú llevas la ruleta de premios, escaneas los tickets y atendemos a la gente.', 'Yo voy a estar ahí, pero este día quiero que el evento tenga tu sello.', 'Habrá picadita todo el rato, lo justo para no pasar hambre y llegar con apetito a la cena.'] },
+    { id: 'papas', hora: '13:00', titulo: 'Vamos por tus papás', resumen: 'Pasamos por tu casa y salimos juntos al restaurante.',
+      detalle: ['Aprovecha para cambiarte al look de la cena (o traer ropa para la noche)', 'Recogemos a tus papás y vamos al lugar.'] },
+    { id: 'cena', hora: 'Con reserva', titulo: 'Cena de cumpleaños', resumen: 'Un restaurante especial con mirador, reservado para tu familia.',
+      detalle: ['La cena es semiformal. Ven bonita como siempre.', 'Lleva algo para abrigarte en el mirador.', 'Es una cena para celebrarte.'] },
+    { id: 'sorpresa', hora: 'Más tarde', titulo: 'Una sorpresa', resumen: 'Todavía no te cuento nada.', secreto: true,
+      detalle: ['Llega pasadas las 4:00 pm.', 'El sobre del final de esta página se abre cuando llegue el momento.'] }
+  ];
+
+  var roles = [
+    { id: 'ruleta', titulo: 'Ruleta de premios', resumen: 'Tú decides cuándo gira y celebras cada premio.',
+      tareas: ['Probar que la ruleta gire bien', 'Tener los premios a mano', 'Celebrar con cada ganador'] },
+    { id: 'tickets', titulo: 'Escaneo de tickets', resumen: 'Cada ticket lo revisas tú.',
+      tareas: ['Dejar el celular cargado y el escáner listo', 'Escanear cada ticket al llegar', 'Avisarme si un ticket no funciona'] },
+    { id: 'atencion', titulo: 'Atención a la gente', resumen: 'La primera cara de DUDS ese día.',
+      tareas: ['Recibimos a las personas', 'Resolver dudas sobre las prendas', 'Anotar lo que más preguntan'] }
+  ];
+
+  var groups = {
+    evento: [
+      { key: 'ev_top', label: 'Arriba', opciones: ['Hoodie', 'Prenda DUDS'] },
+      { key: 'ev_bottom', label: 'Abajo', opciones: ['Jean', 'Pantalón ancho'] },
+      { key: 'ev_shoes', label: 'Zapatillas', opciones: ['Nike'] }
+    ],
+    cena: [
+      { key: 'dn_style', label: 'Estilo', opciones: ['Pantalón de vestir', 'Falda'] },
+      { key: 'dn_shoes', label: 'Calzado', opciones: ['Zapatillas', 'Zapatos de vestir', 'Botines'] },
+      { key: 'dn_layer', label: 'Para el mirador', opciones: ['Blazer', 'Abrigo ligero', 'Chompa'] }
+    ]
+  };
+
+  var WHEEL_C = 160, WHEEL_R = 140, WHEEL_COLORS = ['w1', 'w3', 'w2', 'w4', 'w3', 'w2'];
+  function wheelPoint(a) { var r = a * Math.PI / 180; return [WHEEL_C + WHEEL_R * Math.sin(r), WHEEL_C - WHEEL_R * Math.cos(r)]; }
+
+  createApp({
+    setup: function () {
+      var saved = load();
+      var now = ref(Date.now());
+      var openStops = ref(['recogida']);
+      var checks = reactive(saved.checks || {});
+      var sel = reactive(Object.assign({ ev_top: 0, ev_bottom: 0, ev_shoes: 0, dn_style: 0, dn_shoes: 0, dn_layer: 0 }, saved.sel || {}));
+      var tab = ref('evento');
+      var opened = ref(!preview && !!saved.opened);
+      var tryMsg = ref('');
+      var shake = ref(false);
+      var petals = ref([]);
+      var rotation = ref(0);
+      var spinning = ref(false);
+      var result = ref('');
+      var timer = null;
+
+      function save() { persist({ checks: checks, sel: sel, opened: preview ? false : opened.value }); }
+
+      onMounted(function () { timer = setInterval(function () { now.value = Date.now(); }, 1000); });
+      onBeforeUnmount(function () { clearInterval(timer); });
+
+      var fase = computed(function () { return now.value < CONFIG.inicio ? 'antes' : (now.value < CONFIG.finDia ? 'hoy' : 'despues'); });
+      var parts = computed(function () {
+        var s = Math.floor(Math.max(0, CONFIG.inicio - now.value) / 1000);
+        var d = Math.floor(s / 86400); s %= 86400;
+        var h = Math.floor(s / 3600); s %= 3600;
+        var m = Math.floor(s / 60); s %= 60;
+        return { d: d, h: h, m: m, s: s };
+      });
+
+      function isOpen(id) { return openStops.value.indexOf(id) !== -1; }
+      function toggleStop(id) {
+        var i = openStops.value.indexOf(id);
+        if (i === -1) openStops.value = openStops.value.concat(id);
+        else openStops.value = openStops.value.filter(function (x) { return x !== id; });
+      }
+
+      var totalChecks = roles.reduce(function (n, r) { return n + r.tareas.length; }, 0);
+      function roleDone(r) { var n = 0; r.tareas.forEach(function (_, i) { if (checks[r.id + '-' + i]) n++; }); return n; }
+      var doneCount = computed(function () { return roles.reduce(function (n, r) { return n + roleDone(r); }, 0); });
+      var pct = computed(function () { return Math.round(doneCount.value / totalChecks * 100); });
+      function toggleCheck(key) { checks[key] = !checks[key]; save(); }
+
+      var wedges = computed(function () {
+        var n = CONFIG.premios.length, seg = 360 / n;
+        return CONFIG.premios.map(function (label, i) {
+          var p1 = wheelPoint(i * seg), p2 = wheelPoint((i + 1) * seg);
+          return {
+            i: i, label: label, c: WHEEL_COLORS[i % WHEEL_COLORS.length], mid: (i + 0.5) * seg,
+            d: 'M' + WHEEL_C + ' ' + WHEEL_C + ' L' + p1[0].toFixed(2) + ' ' + p1[1].toFixed(2) +
+               ' A' + WHEEL_R + ' ' + WHEEL_R + ' 0 0 1 ' + p2[0].toFixed(2) + ' ' + p2[1].toFixed(2) + ' Z'
+          };
+        });
+      });
+      var SPIN_MS = reduce ? 50 : 4200;
+      var spinStyle = computed(function () {
+        return { transform: 'rotate(' + rotation.value + 'deg)', transformOrigin: '160px 160px', transition: 'transform ' + SPIN_MS + 'ms cubic-bezier(.12,.6,.1,1)' };
+      });
+      function spin() {
+        if (spinning.value) return;
+        spinning.value = true;
+        result.value = '';
+        var n = CONFIG.premios.length, seg = 360 / n;
+        var i = Math.floor(Math.random() * n);
+        var center = (i + 0.5) * seg + (Math.random() - 0.5) * seg * 0.6;
+        var cur = ((rotation.value % 360) + 360) % 360;
+        var target = ((360 - center) % 360 + 360) % 360;
+        rotation.value += 360 * 5 + ((target - cur + 360) % 360);
+        setTimeout(function () { spinning.value = false; result.value = CONFIG.premios[i]; }, SPIN_MS + 100);
+      }
+      var resultText = computed(function () {
+        if (spinning.value) return '';
+        return result.value ? 'Salió: ' + result.value : 'Toca Girar para probar.';
+      });
+
+      var tabs = [{ id: 'evento', label: 'Evento · mañana' }, { id: 'cena', label: 'Cena · noche' }];
+      var notas = {
+        evento: 'Cómoda, con onda y lista para moverte. Puede ser algo de DUDS o un hoodie.',
+        cena: 'Semiformal y bonita como siempre. A la 1 pm pasamos por tu casa, ahí te cambias.'
+      };
+      function pick(key, i) { sel[key] = i; save(); }
+      function choice(g) { return g.opciones[sel[g.key]] || g.opciones[0]; }
+      var resumenLook = computed(function () {
+        return groups[tab.value].map(function (g) {
+          var o = choice(g);
+          return o === 'Nike' ? 'Zapatillas Nike' : o;
+        }).join(' + ');
+      });
+
+      var unlocked = computed(function () { return preview || now.value >= CONFIG.sorpresaDesde; });
+      var sealText = computed(function () {
+        if (unlocked.value) return 'Ya se puede abrir.';
+        if (now.value >= CONFIG.inicio) {
+          var left = CONFIG.sorpresaDesde - now.value;
+          return 'Se abre en ' + Math.floor(left / 3600000) + ' h ' + pad(Math.floor((left % 3600000) / 60000)) + ' min.';
+        }
+        return 'Se abre el sábado 24, pasadas las 4:00 pm.';
+      });
+
+      function spawnPetals() {
+        var colors = ['var(--blush)', 'var(--sage)', 'var(--sand)', 'var(--moss)', 'var(--blush)'];
+        var list = [];
+        for (var i = 0; i < 28; i++) {
+          list.push({
+            id: Date.now() + '-' + i,
+            style: {
+              '--x': (Math.random() * 100).toFixed(1) + '%',
+              '--s': (10 + Math.random() * 12).toFixed(1) + 'px',
+              '--c': colors[i % colors.length],
+              '--d': (4.5 + Math.random() * 3).toFixed(2) + 's',
+              '--delay': (Math.random() * 1.2).toFixed(2) + 's',
+              '--dx': ((Math.random() - 0.5) * 160).toFixed(0) + 'px',
+              '--r': (Math.random() * 540 - 270).toFixed(0) + 'deg'
+            }
+          });
+        }
+        petals.value = list;
+        setTimeout(function () { petals.value = []; }, 8000);
+      }
+      function openSurprise() {
+        if (!unlocked.value) {
+          tryMsg.value = 'Todavía no. Falta la cena.';
+          shake.value = false;
+          requestAnimationFrame(function () {
+            shake.value = true;
+            setTimeout(function () { shake.value = false; }, 650);
+          });
+          return;
+        }
+        tryMsg.value = '';
+        opened.value = true;
+        save();
+        if (!reduce) spawnPetals();
+      }
+
+      var jumps = [{ id: 'plan', label: 'El plan' }, { id: 'lugar', label: 'Tu lugar' }, { id: 'look', label: 'Qué ponerte' }, { id: 'sorpresa', label: 'Sorpresa' }];
+      function go(id) {
+        var el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }
+
+      return {
+        nombre: CONFIG.nombre, carta: CONFIG.carta,
+        fase: fase, parts: parts, pad: pad,
+        stops: stops, isOpen: isOpen, toggleStop: toggleStop,
+        roles: roles, checks: checks, toggleCheck: toggleCheck, roleDone: roleDone, doneCount: doneCount, totalChecks: totalChecks, pct: pct,
+        wedges: wedges, spinStyle: spinStyle, spinning: spinning, spin: spin, resultText: resultText,
+        tabs: tabs, tab: tab, groups: groups, sel: sel, pick: pick, notas: notas, resumenLook: resumenLook,
+        unlocked: unlocked, opened: opened, sealText: sealText, tryMsg: tryMsg, shake: shake, openSurprise: openSurprise, petals: petals,
+        jumps: jumps, go: go
+      };
+    }
+  }).mount('#app');
+  }
+})();
+</script>
+
+</body></html>
